@@ -36,52 +36,16 @@ A implementação dos serviços AWS na empresa Abstergo Industries tem como resu
 
 ## Anexos
 
-- Documentação oficial dos serviços AWS utilizados
-EC2: https://docs.aws.amazon.com/ec2/
-S3: https://docs.aws.amazon.com/s3/
-Lambda: https://docs.aws.amazon.com/lambda/
+- Documentação oficial dos serviços AWS utilizados <br>
+EC2: https://docs.aws.amazon.com/ec2/<br>
+S3: https://docs.aws.amazon.com/s3/<br>
+Lambda: https://docs.aws.amazon.com/lambda/<br>
 
 - Diagrama da arquitetura proposta
-┌───────────────────────────────┐
-│           Usuários            │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│        Application Load        │
-│           Balancer             │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌────────────────────────────────────────────────┐
-│        Amazon EC2 Auto Scaling Group             │
-│                                                  │
-│   ┌──────────────┐     ┌──────────────┐          │
-│   │   EC2 App    │     │   EC2 App    │          │
-│   │   Instance   │ ... │   Instance   │          │
-│   └──────────────┘     └──────────────┘          │
-│                                                  │
-│  (Escala automaticamente conforme demanda)       │
-└───────────────┬──────────────────────────────────┘
-                │
-                │ Processamentos assíncronos
-                ▼
-┌───────────────────────────────┐
-│          AWS Lambda           │
-│  (Execução sob demanda,       │
-│   sem servidores)             │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│          Amazon S3             │
-│  (Armazenamento com políticas  │
-│   de ciclo de vida)            │
-│                               │
-│  - Standard                    │
-│  - Standard-IA                 │
-│  - Glacier                     │
-└───────────────────────────────┘
+- 
+<p align="center">
+  <img src="diagrama.png" alt="Diagrama da Arquitetura AWS" width="700"/>
+</p>
 
 
 Assinatura do Responsável pelo Projeto:
